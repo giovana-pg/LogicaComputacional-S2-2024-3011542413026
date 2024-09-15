@@ -1,0 +1,84 @@
+#Atividade Avaliativa - Lógica Computacional 12-09-2024
+#Demonstrar as implicâncias Tautológicas no Python
+#Dilema Construtivo (DC)
+# ((𝑝 → 𝑞) ∧ (r → s) ∧ (𝑝 v r)) → (q v s)
+ 
+n=0
+print("((𝑝 → 𝑞) ∧ (r → s) ∧ (𝑝 v r)) → (q v s)")
+for p in (0, 1):
+    for q in (0, 1):
+        for r in (0, 1):
+            for s in (0, 1):
+                #0 = Falso
+                #1 = Verdadeiro
+                if p == 1:
+                    P = "V"
+                else:
+                    P = "F"
+            
+                if q == 1:
+                    Q = "V"
+                else:
+                    Q = "F"
+
+                if r == 1:
+                    R = "V"
+                else:
+                    R = "F"
+
+                if s == 1:
+                    S = "V"
+                else:
+                    S = "F"
+                
+                # p → q
+                #Se a primeira preposição for V e a segunda for F, então o valor lógico é F
+                #A única condição onde pode ser falso
+                if p == 1 and q == 0:
+                    PQ = "F"
+                else:
+                    PQ = "V"
+                                
+                # r → s
+                # Similar ao de cima
+                if r == 1 and s == 0:
+                    RS = "F"
+                else:
+                    RS = "V"
+                
+                # p ∨ r
+                # Uma das preposições tem que ser verdadeira
+                if p == 0 and r == 0:
+                    PR = "F"
+                else:
+                    PR = "V"
+                
+                # (p → q) ∧ (r → s)
+                #   PQ    ∧   RS  
+                if PQ == "V" and RS == "V":
+                    PQRS = "V"
+                else:
+                    PQRS = "F"
+                                               
+                # (p → q) ∧ (r → s) ∧ (p ∨ r)
+                #         PQRS      ∧    PR
+                if PQRS == "V" and PR == "V":
+                    PQRSPR = "V"
+                else:
+                    PQRSPR = "F"
+
+                # q ∨ s
+                #  QS
+                if q == 0 and s == 0:
+                    QS = "F"
+                else:
+                    QS = "V"
+                
+                # ((p → q) ∧ (r → s) ∧ (p ∨ r)) → (q ∨ s)
+                #             PQRSPR            →    QS
+                if PQRSPR == "V" and QS == "F":
+                    PQRSPRQS = "F"
+                else:
+                    PQRSPRQS = "V"
+
+                print(f"{P} | {Q} | {R} | {S} |   {PQ}   |   {RS}   |   {PR}   |       {PQRS}        |   {PQRSPR}   |   {QS}   |          {PQRSPRQS}          ")
