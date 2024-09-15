@@ -82,3 +82,5 @@ for p in (0, 1):
                     PQRSPRQS = "V"
 
                 print(f"{P} | {Q} | {R} | {S} |   {PQ}   |   {RS}   |   {PR}   |       {PQRS}        |   {PQRSPR}   |   {QS}   |          {PQRSPRQS}          ")
+
+#Trabalho Finalizado
